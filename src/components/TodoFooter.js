@@ -5,9 +5,9 @@ function TodoFooter({ todos, onClearCompleted, filter, onSetFilter }) {
 
   return (
     <footer className="footer" style={{ display: todos.length ? 'block' : 'none' }}>
-      <span className="todo-count"><strong>{todos.length - completedSize}</strong> items left</span>
+      <span className="todo-count"><strong>{todos.length - completedSize}</strong> öğe kaldı</span>
       <ul className="filters">
-        {['all', 'active', 'completed'].map(f => (
+        {['Hepsi', 'Devam', 'Tamam'].map(f => (
           <li key={f}>
             <a
               href="#/"
@@ -20,7 +20,7 @@ function TodoFooter({ todos, onClearCompleted, filter, onSetFilter }) {
         ))}
       </ul>
       <button className="clear-completed" onClick={onClearCompleted} style={{ display: completedSize ? 'block' : 'none' }}>
-        Clear completed
+       Temizle
       </button>
     </footer>
   );

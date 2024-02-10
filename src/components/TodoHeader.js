@@ -16,10 +16,9 @@ function TodoHeader({ onAddTodo }) {
 
   return (
     <header className="header">
-      <h1>Görevler</h1>
+      <h1>Liste</h1>
       <input
         className="new-todo"
-        placeholder="What needs to be done?"
         autoFocus
         value={inputValue}
         onChange={handleInputChange}
