@@ -368,7 +368,7 @@ html .clear-completed:active {
 	color: #f5f5f5; /* Altın veya tercihinize göre bir renk */
   }
   .dark-mode .todoapp {
-	box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.237), 0 25px 50px 0 rgba(255, 255, 255, 0.407);
+	box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.237), 0 5px 10px 0 rgba(255, 255, 255, 0.407);
   }
 
 /*
@@ -395,3 +395,43 @@ html .clear-completed:active {
 		bottom: 10px;
 	}
 }
+@media (max-width: 768px) {
+	body {
+	  font-size: 16px; /* Mobil cihazlarda genel font boyutunu artır */
+	}
+  
+		.todoapp h1 {
+		  font-size: 40px; /* Mobil cihazlar için başlık font boyutunu ayarla */
+		  top: 40px; /* Başlığın konumunu üstten 20px olarak ayarla */
+		  position: relative; /* Pozisyon tipini değiştirerek daha iyi bir kontrol sağla */
+		  left: 0; /* Başlığı sola hizala */
+		  transform: translateY(-50%); /* Y ekseni boyunca ortala */
+		}
+  
+	.todoapp {
+	  margin: 30px 0; /* Üst ve alt marjı azalt */
+	  width: auto; /* Otomatik genişlik */
+	  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* Gölgeyi azalt */
+	}
+  
+	.new-todo, .edit {
+	  font-size: 18px; /* Giriş alanları için font boyutunu büyüt */
+	  padding: 20px; /* Daha fazla dolgu */
+	}
+  
+	.todo-list li {
+	  font-size: 18px; /* Liste öğeleri için font boyutunu büyüt */
+	}
+  
+	.footer {
+	  font-size: 14px; /* Altbilgi fontunu büyüt */
+	}
+  
+	.todo-count, .filters li a, .clear-completed {
+	  font-size: 14px; /* Filtre ve sayım fontlarını büyüt */
+	}
+	.dark-mode h1 {
+		color: #212121; /* Altın veya tercihinize göre bir renk */
+	  }
+  }
+  
