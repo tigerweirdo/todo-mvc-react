@@ -84,6 +84,11 @@ body {
 	text-rendering: optimizeLegibility;
 	font-family: 'Demode'; /* Fontu burada kullan */
 	cursor: pointer;
+	user-select: none; /* Kullanıcının metni seçmesini engelle */
+	-webkit-tap-highlight-color: transparent; /* iOS Safari için dokunma vurgusunu transparent yap */
+	-webkit-user-select: none; /* Chrome/Safari için */
+	-moz-user-select: none; /* Firefox için */
+	-ms-user-select: none; /* Internet Explorer/Edge için */
 
 }
 
