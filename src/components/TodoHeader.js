@@ -16,7 +16,7 @@ function TodoHeader({ onAddTodo }) {
 
   return (
     <header className="header">
-      <h1>Liste</h1>
+      <h1 onClick={() => document.body.classList.toggle('dark-mode')}>Liste</h1>
       <input
         className="new-todo"
         autoFocus
