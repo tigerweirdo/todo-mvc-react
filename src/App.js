@@ -1,35 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoHeader from './components/TodoHeader';
 import TodoList from './components/TodoList';
 import TodoFooter from './components/TodoFooter';
-import './App.css'; // CSS stillerini buraya ekleyin
+import './App.css';
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  // useState'i bir fonksiyon ile başlatarak localStorage'dan veri çekiyoruz
+  const [todos, setTodos] = useState(() => {
+    const storedTodos = localStorage.getItem('todos');
+    return storedTodos ? JSON.parse(storedTodos) : [];
+  });
+
+  // Todos her değiştiğinde, localStorage'a kaydedin
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (title) => {
-    const newTodo = {
-      id: Date.now(),
-      title: title,
-      completed: false,
-    };
-    setTodos([...todos, newTodo]);
+    const newTodo = { id: Date.now(), title, completed: false };
+    setTodos(prevTodos => [...prevTodos, newTodo]);
   };
 
   const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
+    setTodos(prevTodos =>
+      prevTodos.map(todo =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo)
     );
   };
 
   const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
   };
 
   const clearCompleted = () => {
-    setTodos(todos.filter((todo) => !todo.completed));
+    setTodos(prevTodos => prevTodos.filter(todo => !todo.completed));
   };
 
   return (
